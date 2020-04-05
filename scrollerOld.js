@@ -1,5 +1,5 @@
 var intervalID;
-var divs = [];
+var divs;
 var headerHeight;
 var i = 0;
 
@@ -8,14 +8,12 @@ chrome.runtime.onMessage.addListener(
     {
         if(seconds > 0)
         {
-            //Get all the different posts in the page
-            divs = document.getElementsByClassName('rpBJOHq2PR60pnwJlUyP0')[0].childNodes;
-
-            //Search for the first visible post, and set the index to that post
-            setIndex();
+            //Get all the different posts in the page (each one is inside a div)
+            divs = document.getElementById('siteTable').childNodes;
+            setDivsClean();
             
-            //Needed to scroll up the header height, so it doesn't overlap the post
-            headerHeight = document.getElementsByClassName('_1tvdSTbdxaK-BnUbzUIqIY _2GyPfdsi-MbQFyHRECo9GO cx1ohrUAq6ARaXTX2u8YN   ')[0].offsetHeight * -1;
+            //Search for the first visible item
+            setIndex();
 
             //Start interval
             intervalID = setInterval(scrollerInterval, seconds*1000);
@@ -40,11 +38,7 @@ function scrollerInterval()
 //Scrolls to the next post, uses global variables
 function scrollPost()
 {
-    while(checkIsPostAd(divs[i]))
-        i++;
-    
     divs[i].scrollIntoView();
-    window.scrollBy(0, headerHeight);
     i++;
 }
 
@@ -69,7 +63,7 @@ function stopScroller()
     clearInterval(intervalID);
     i = 0;
     intervalID = null;
-    divs = [];
+    divs = null;
     headerHeight = null;
 }
 
@@ -82,11 +76,15 @@ function checkVisible(elm)
     return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
 }
 
-//Used to check whether a post is an ad or not
-function checkIsPostAd(element)
+//Function used to get only the posts from the div (minus ads and spacers)
+function setDivsClean()
 {
-    if(element.childNodes[0].childNodes[0].className.indexOf('promotedlink') > -1 || element.offsetHeight == 0)
-        return true;
-    else
-        return false;
+    divs = [];
+    var rankSpans = document.getElementsByClassName('rank');
+
+    for(j = 0; j < rankSpans.length; j++)
+    {
+        if(rankSpans[j].className == "rank")
+            divs.push(rankSpans[j].parentElement);
+    }
 }

@@ -1,0 +1,22 @@
+{
+    "appName": {
+        "message": "Reddit Scroller",
+        "description": "Nombre de la extensión"
+    },
+    "appDesc": {
+        "message": "Baja automáticamente hasta el siguiente post de Reddit tras los segundos que el usuario haya indicado.",
+        "description": "Descripción de la extensión"
+    },
+    "errorReload": {
+        "message": "Por favor, <b>recarga la página</b>, necesitamos cargar algunos scripts que se han quedado sin cargar :(",
+        "description": "Error que se muestra cuando el usuario debe recargar la página porque falten scripts por cargar"
+    },
+    "errorNotReddit": {
+        "message": "¡Lo sientto! Esta extensión está hecha para ser usada <b>solo en Reddit</b> :)",
+        "description": "Error que se muestra cuando el usuario está intentando usar la extensión en una página que no es Reddit"
+    },
+    "errorFirstInstall": {
+        "message": "¡Lo siento! Creemos que acabas de instalar/habilitar la extensión y tenías pestañas de Reddit abiertas. Si ese es el caso, por favor, <b>recarga la página</b> para que funcione correctamente. No deberías volver a ver este mensaje. Si no es el caso, por favor, considera mandarle un mensaje al desarrollador. ¡Gracias!",
+        "description": "Error que se muestra cuando el usuario acaba de instalar la extensión y los datos para la pestaña aún no se han creado porque tenía pestañas de Reddit abiertas."
+    }
+}

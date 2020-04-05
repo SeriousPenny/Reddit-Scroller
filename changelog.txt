@@ -1,0 +1,20 @@
+0.6.0 (2020/04/05)
+- Fixed scroller in new Reddit not loading more divs after going down the ones already loaded.
+
+0.5.1 (2020/04/04)
+- Error shown when user installs extension and had previously opened Reddit tabs.
+
+0.5.0 (2020/03/31)
+- Scroller should now skip over promoted posts. Using AdBlock should be no concern either.
+
+0.4.0 (2020/03/31)
+- Tab information is now stored locally to prevent background idling causing problems. Should work much more persistently.
+
+0.3.0 (2020/03/30)
+- Added support for old.reddit.com
+
+0.2.0 (2020/03/30)
+- Added locale to Spanish.
+
+0.1.0 (2020/03/29)
+- First release.
